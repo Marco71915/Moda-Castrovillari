@@ -7,16 +7,19 @@
   <style>
     body {
       margin: 0;
+      min-height: 100vh; /* Copre tutta l’altezza dello schermo */
       font-family: Arial, sans-serif;
-      background: url('sfondo.jpg') no-repeat center center fixed; /* Immagine di sfondo */
-      background-size: cover; /* L'immagine copre tutto lo schermo */
+      background: linear-gradient(to bottom, #ffb6c1, #ffffff);
+      background-attachment: fixed; /* Sfondo fisso */
+      background-repeat: no-repeat; /* Nessuna ripetizione */
+      background-size: cover;       /* Copre tutta l’area */
       text-align: center;
       padding: 2rem;
       color: white;
     }
     .logo {
-      max-width: 300px; /* Logo più grande */
-      border-radius: 0; /* Logo quadrato */
+      max-width: 200px; /* Logo leggermente più piccolo */
+      border-radius: 0; 
       margin: 0 auto 2rem;
       display: block;
     }
@@ -73,12 +76,8 @@
     // Funzione generica per tentare apertura app + fallback web
     function openAppOrWeb(appUrl, webUrl) {
       const start = Date.now();
-      // Prova ad aprire l'app
       window.location = appUrl;
-
-      // Dopo 1 secondo controlla se l'app non si è aperta (semplice fallback)
       setTimeout(function() {
-        // Se il tempo trascorso è inferiore a 1.5 sec, probabilmente l'app non si è aperta
         if (Date.now() - start < 1500) {
           window.open(webUrl, '_blank');
         }
