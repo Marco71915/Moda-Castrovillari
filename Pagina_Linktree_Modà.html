@@ -66,13 +66,17 @@
     Seguici su Instagram
   </div>
 
-  <!-- Bottone Facebook -->
-  <div class="link-button" id="facebookButton" role="button" tabindex="0">
+  <!-- Bottone Facebook (link diretto al profilo web) -->
+  <a class="link-button" href="https://www.facebook.com/modacastrovillari122" target="_blank">
     <img class="icon" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
     Seguici su Facebook
-  </div>
+  </a>
 
   <script>
+    document.getElementById('instagramButton').addEventListener('click', function () {
+      openAppOrWeb('instagram://user?username=moda_castrovillari', 'https://www.instagram.com/moda_castrovillari/');
+    });
+
     // Funzione generica per tentare apertura app + fallback web
     function openAppOrWeb(appUrl, webUrl) {
       const start = Date.now();
@@ -83,14 +87,6 @@
         }
       }, 1000);
     }
-
-    document.getElementById('facebookButton').addEventListener('click', function () {
-      openAppOrWeb('fb://page/100054209844099', 'https://www.facebook.com/modacastrovillari122');
-    });
-
-    document.getElementById('instagramButton').addEventListener('click', function () {
-      openAppOrWeb('instagram://user?username=moda_castrovillari', 'https://www.instagram.com/moda_castrovillari/');
-    });
   </script>
 </body>
 </html>
